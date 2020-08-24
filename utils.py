@@ -148,14 +148,14 @@ def load_movielens_1m(add_rating=False) -> RatingData:
     return out
 
 
-def load_movielens_100k(add_rating=True) -> RatingData:
+def load_movielens_100k(add_rating=True, do_scale=True) -> RatingData:
     out = RatingData(944, 1683)
     with open(ML_100K_DATA_FILE, "r") as f:
         for x, line in enumerate(f):
             u, i, r, t = (int(x) for x in line.strip().split("\t"))
             if not add_rating:
                 r = 1
-            else:
+            elif do_scale:
                 r /= 5
             out.add(u - 1, i - 1, r)
     return out
