@@ -1,0 +1,134 @@
+D:\Programs\Python\Miniconda3\envs\cs236779\python.exe "D:/Code/cs236779 - Big Data Algorithms/ncf_mlp.py"
+2020-08-24 14:55:15.096096: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-08-24 14:55:25.146219: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2020-08-24 14:55:25.166890: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:07:00.0 name: GeForce GTX 1060 6GB computeCapability: 6.1
+coreClock: 1.835GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-08-24 14:55:25.167108: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-08-24 14:55:25.173435: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-08-24 14:55:25.176968: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-08-24 14:55:25.178158: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-08-24 14:55:25.182413: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-08-24 14:55:25.184611: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-08-24 14:55:25.193559: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-08-24 14:55:25.193743: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-08-24 14:55:25.194247: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-08-24 14:55:25.202341: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x2829af42320 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-08-24 14:55:25.202496: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-08-24 14:55:25.202772: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:07:00.0 name: GeForce GTX 1060 6GB computeCapability: 6.1
+coreClock: 1.835GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-08-24 14:55:25.202955: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-08-24 14:55:25.203049: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-08-24 14:55:25.203213: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-08-24 14:55:25.203306: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-08-24 14:55:25.203395: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-08-24 14:55:25.203488: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-08-24 14:55:25.203580: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-08-24 14:55:25.204140: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-08-24 14:55:25.716244: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-08-24 14:55:25.716354: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-08-24 14:55:25.716416: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-08-24 14:55:25.716616: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4694 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:07:00.0, compute capability: 6.1)
+2020-08-24 14:55:25.719101: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x282d567dbf0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-08-24 14:55:25.719224: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1060 6GB, Compute Capability 6.1
+Model: "functional_1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+user (InputLayer)               [(None, 1)]          0                                            
+__________________________________________________________________________________________________
+item (InputLayer)               [(None, 1)]          0                                            
+__________________________________________________________________________________________________
+user_embedding (Embedding)      (None, 1, 128)       773120      user[0][0]                       
+__________________________________________________________________________________________________
+item_embedding (Embedding)      (None, 1, 128)       505856      item[0][0]                       
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 128)          0           user_embedding[0][0]             
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 128)          0           item_embedding[0][0]             
+__________________________________________________________________________________________________
+concatenate (Concatenate)       (None, 256)          0           flatten[0][0]                    
+                                                                 flatten_1[0][0]                  
+__________________________________________________________________________________________________
+layer_0 (Dense)                 (None, 256)          65792       concatenate[0][0]                
+__________________________________________________________________________________________________
+layer_1 (Dense)                 (None, 128)          32896       layer_0[0][0]                    
+__________________________________________________________________________________________________
+layer_2 (Dense)                 (None, 64)           8256        layer_1[0][0]                    
+__________________________________________________________________________________________________
+out (Dense)                     (None, 1)            65          layer_2[0][0]                    
+==================================================================================================
+Total params: 1,385,985
+Trainable params: 1,385,985
+Non-trainable params: 0
+__________________________________________________________________________________________________
+C:\Users\Tal Skverer\AppData\Roaming\Python\Python38\site-packages\tensorflow\python\framework\indexed_slices.py:431: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  warnings.warn(
+2020-08-24 14:55:36.477433: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+5855/5855 [==============================] - 29s 5ms/step - loss: 0.4599
+Epoch 0 [30.613290548324585 s]: HR = 0.5429141716566867
+Saved!
+5855/5855 [==============================] - 29s 5ms/step - loss: 0.4330
+Epoch 1 [29.403493881225586 s]: HR = 0.6087824351297405
+Saved!
+5855/5855 [==============================] - 29s 5ms/step - loss: 0.4050
+Epoch 2 [29.568544626235962 s]: HR = 0.6866267465069861
+Saved!
+5855/5855 [==============================] - 29s 5ms/step - loss: 0.3833
+Epoch 3 [29.473414659500122 s]: HR = 0.6986027944111777
+Saved!
+5855/5855 [==============================] - 29s 5ms/step - loss: 0.3706
+Epoch 4 [29.69372296333313 s]: HR = 0.718562874251497
+Saved!
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.3605
+Epoch 5 [30.64427089691162 s]: HR = 0.7345309381237525
+Saved!
+5855/5855 [==============================] - 29s 5ms/step - loss: 0.3508
+Epoch 6 [30.187171936035156 s]: HR = 0.7465069860279441
+Saved!
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.3423
+Epoch 7 [30.614603519439697 s]: HR = 0.7245508982035929
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.3341
+Epoch 8 [30.67353868484497 s]: HR = 0.7524950099800399
+Saved!
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.3263
+Epoch 9 [30.934422969818115 s]: HR = 0.7604790419161677
+Saved!
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.3187
+Epoch 10 [31.291515588760376 s]: HR = 0.7385229540918163
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.3106
+Epoch 11 [31.487496376037598 s]: HR = 0.7504990019960079
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.3042
+Epoch 12 [31.77548909187317 s]: HR = 0.7325349301397206
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2968
+Epoch 13 [31.587711095809937 s]: HR = 0.7465069860279441
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.2901
+Epoch 14 [30.51738977432251 s]: HR = 0.7504990019960079
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.2832
+Epoch 15 [30.757479429244995 s]: HR = 0.7684630738522954
+Saved!
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2770
+Epoch 16 [31.57484531402588 s]: HR = 0.7544910179640718
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.2710
+Epoch 17 [31.159615755081177 s]: HR = 0.7465069860279441
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2647
+Epoch 18 [31.47492027282715 s]: HR = 0.7445109780439122
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2600
+Epoch 19 [32.01045751571655 s]: HR = 0.7504990019960079
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2550
+Epoch 20 [32.020084857940674 s]: HR = 0.7445109780439122
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2494
+Epoch 21 [31.483357906341553 s]: HR = 0.7504990019960079
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2453
+Epoch 22 [31.941900968551636 s]: HR = 0.7245508982035929
+5855/5855 [==============================] - 31s 5ms/step - loss: 0.2410
+Epoch 23 [31.543814659118652 s]: HR = 0.7265469061876247
+5855/5855 [==============================] - 30s 5ms/step - loss: 0.2366
+Epoch 24 [30.77431893348694 s]: HR = 0.7225548902195609
+Done. Best epoch: 15, best HR = 0.7684630738522954
+1563/1563 [==============================] - 2s 1ms/step
+Mean absolute error for the learnt MovieLens-1M model: 0.3950270712375641. Root mean squared error: 0.5131012797355652
+
+Process finished with exit code 0

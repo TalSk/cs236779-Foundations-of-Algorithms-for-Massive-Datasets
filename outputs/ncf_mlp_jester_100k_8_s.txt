@@ -1,0 +1,81 @@
+D:\Programs\Python\Miniconda3\envs\cs236779\python.exe "D:/Code/cs236779 - Big Data Algorithms/ncf_mlp.py"
+2020-08-24 15:36:30.768357: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-08-24 15:36:33.560844: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2020-08-24 15:36:33.581220: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:07:00.0 name: GeForce GTX 1060 6GB computeCapability: 6.1
+coreClock: 1.835GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-08-24 15:36:33.581411: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-08-24 15:36:33.585021: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-08-24 15:36:33.588998: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-08-24 15:36:33.590156: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-08-24 15:36:33.594166: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-08-24 15:36:33.596303: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-08-24 15:36:33.604952: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-08-24 15:36:33.605156: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-08-24 15:36:33.605763: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-08-24 15:36:33.614023: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1c517459540 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-08-24 15:36:33.614173: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-08-24 15:36:33.614422: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:07:00.0 name: GeForce GTX 1060 6GB computeCapability: 6.1
+coreClock: 1.835GHz coreCount: 10 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 178.99GiB/s
+2020-08-24 15:36:33.614605: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-08-24 15:36:33.614697: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-08-24 15:36:33.614789: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-08-24 15:36:33.614877: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-08-24 15:36:33.615304: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-08-24 15:36:33.615444: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-08-24 15:36:33.615610: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-08-24 15:36:33.615832: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-08-24 15:36:34.133607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-08-24 15:36:34.133711: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-08-24 15:36:34.133770: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-08-24 15:36:34.133968: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4694 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:07:00.0, compute capability: 6.1)
+2020-08-24 15:36:34.136529: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1c53e55f2a0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-08-24 15:36:34.136657: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1060 6GB, Compute Capability 6.1
+Model: "functional_1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+user (InputLayer)               [(None, 1)]          0                                            
+__________________________________________________________________________________________________
+item (InputLayer)               [(None, 1)]          0                                            
+__________________________________________________________________________________________________
+user_embedding (Embedding)      (None, 1, 32)        246368      user[0][0]                       
+__________________________________________________________________________________________________
+item_embedding (Embedding)      (None, 1, 32)        5088        item[0][0]                       
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 32)           0           user_embedding[0][0]             
+__________________________________________________________________________________________________
+flatten_1 (Flatten)             (None, 32)           0           item_embedding[0][0]             
+__________________________________________________________________________________________________
+concatenate (Concatenate)       (None, 64)           0           flatten[0][0]                    
+                                                                 flatten_1[0][0]                  
+__________________________________________________________________________________________________
+layer_0 (Dense)                 (None, 64)           4160        concatenate[0][0]                
+__________________________________________________________________________________________________
+layer_1 (Dense)                 (None, 32)           2080        layer_0[0][0]                    
+__________________________________________________________________________________________________
+layer_2 (Dense)                 (None, 16)           528         layer_1[0][0]                    
+__________________________________________________________________________________________________
+layer_3 (Dense)                 (None, 8)            136         layer_2[0][0]                    
+__________________________________________________________________________________________________
+out (Dense)                     (None, 1)            9           layer_3[0][0]                    
+==================================================================================================
+Total params: 258,369
+Trainable params: 258,369
+Non-trainable params: 0
+__________________________________________________________________________________________________
+C:\Users\Tal Skverer\AppData\Roaming\Python\Python38\site-packages\tensorflow\python\framework\indexed_slices.py:431: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  warnings.warn(
+2020-08-24 15:36:35.646897: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+370/370 [==============================] - 1s 3ms/step - loss: 0.6749
+370/370 [==============================] - 1s 3ms/step - loss: 0.6558
+370/370 [==============================] - 1s 3ms/step - loss: 0.6479
+370/370 [==============================] - 1s 3ms/step - loss: 0.6392
+370/370 [==============================] - 1s 3ms/step - loss: 0.6297
+Done. Best epoch: -1, best HR = 0
+329/329 [==============================] - 0s 790us/step
+Mean absolute error for the learnt Jester-100k model: 0.17097358405590057. Root mean squared error: 0.2316155731678009
+
+Process finished with exit code 0

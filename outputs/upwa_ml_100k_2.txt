@@ -1,0 +1,5 @@
+D:\Programs\Python\Miniconda3\envs\cs236779\python.exe E:\Programs\JetBrains\Toolbox\apps\PyCharm-P\ch-0\202.6397.98\plugins\python\helpers\pydev\pydevd.py --multiproc --qt-support=auto --client 127.0.0.1 --port 59839 --file "D:/Code/cs236779 - Big Data Algorithms/upwa.py"
+pydev debugger: process 22064 is connecting
+Connected to pydev debugger (build 202.6397.98)
+3.946914190211329
+0.931264442566367
